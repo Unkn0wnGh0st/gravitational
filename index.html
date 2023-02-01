@@ -1,2 +1,13 @@
-<h1>HI THERE!</h1>
-<h2>POC OF SUBDOMAIN TAKEOVER</h2>
+
+
+<?php
+$xmlfile = file_get_contents('php://input');
+$dom = new DOMDocument();
+$dom->loadXML($xmlfile, LIBXML_NOENT | LIBXML_DTDLOAD);
+$xml = simplexml_import_dom($dom);
+$stuff = $xml->stuff;
+
+$str = "$stuff \n";
+
+echo $str;
+?>
